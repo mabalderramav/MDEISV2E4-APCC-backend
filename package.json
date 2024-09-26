@@ -1,0 +1,34 @@
+{
+  "name": "project01",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon --watch src --exec ts-node src/index.ts",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "bdd": "yarn cucumber-js src/features/ --require-module ts-node/register --require src/features/step_definitions/*.ts"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "pg": "^8.13.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.0.1",
+    "@types/chai": "^5.0.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.2",
+    "@types/pg": "^8.11.10",
+    "@types/sinon": "^17.0.3",
+    "@types/supertest": "^6.0.2",
+    "chai": "4.3.6",
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.7",
+    "sinon": "^19.0.2",
+    "supertest": "^7.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.1"
+  }
+}
