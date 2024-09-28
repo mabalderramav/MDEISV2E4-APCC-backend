@@ -1,5 +1,5 @@
 {
-  "name": "project01",
+  "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -20,12 +20,10 @@
     "@types/express": "^5.0.0",
     "@types/node": "^22.7.2",
     "@types/pg": "^8.11.10",
-    "@types/sinon": "^17.0.3",
     "@types/supertest": "^6.0.2",
     "chai": "4.3.6",
     "dotenv": "^16.4.5",
     "nodemon": "^3.1.7",
-    "sinon": "^19.0.2",
     "supertest": "^7.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2",

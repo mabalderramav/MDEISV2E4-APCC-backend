@@ -41,7 +41,10 @@ export async function registerClientService(clientData: any): Promise<any> {
         email: savedClient.email,
       },
     };
-  } catch (error) {
+  } catch (error: any) {
+    if (error?.detail) {
+      throw new Error(error?.detail);
+    }
     throw new Error('Error al registrar el cliente en la base de datos');
   }
 }

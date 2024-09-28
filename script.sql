@@ -1,6 +1,6 @@
 CREATE TABLE clientes (
   id SERIAL PRIMARY KEY,
-  code VARCHAR(50),
+  code VARCHAR(50) UNIQUE,
   name VARCHAR(100),
   ciNit VARCHAR(20),
   documentType VARCHAR(5),
