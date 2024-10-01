@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import request from 'supertest';
-import app from '../index'; // Importa tu aplicación Express
+import app from '../app'; // Importa tu aplicación Express
 import { registerClientService } from '../services/clientService'; // Importa el servicio
 
 // Mock del servicio `registerClientService`

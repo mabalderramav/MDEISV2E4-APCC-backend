@@ -1,19 +1,11 @@
-import express from 'express';
-import clientRoutes from './routes/clientRoutes';
-import { saleSave } from './controllers/sale-controller';
+import app from './app'; // Importa la aplicación configurada
+import dotenv from 'dotenv';
 
-const app = express();
+dotenv.config(); // Para cargar las variables de entorno, si las necesitas
+
 const PORT = process.env.PORT || 5000;
 
-var cors = require('cors');
-app.use(cors());
-app.use(express.json());
-
-app.use('/api', clientRoutes);
-app.use('/api', saleSave)
-
+// Arranca el servidor en el puerto especificado
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
-
-export default app; // Exporta el app para usarlo en pruebas con supertest
