@@ -22,4 +22,12 @@ export class ClientRepository {
       savedClient.email,
     );
   }
+  async  findByCode(code: string): Promise<Client| null> {
+    const res = await pool.query(`select * from clientes where code = $1`, [code]);
+    return res.rows.length > 0 ? res.rows[0] : null;
+  }
+  async  findIdByCode(code: string): Promise<number> {
+    const res = await pool.query(`select * from clientes where code = $1`, [code]);
+    return res.rows[0].id;
+  }
 }
