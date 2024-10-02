@@ -2,7 +2,7 @@ import {describe, it, expect, vi} from "vitest";
 import request from "supertest";
 import {SaleService} from "../services/sale.service";
 import {SaleDto} from "../models/dto/sale.dto";
-import app from "../app"; // Importa tu aplicación Express
+import app from "../app";
 
 vi.mock('../services/sale.service');
 describe("POST /api/sales", () => {
