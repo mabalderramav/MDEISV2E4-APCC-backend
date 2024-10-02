@@ -6,9 +6,7 @@ import { ClientRepository } from '../repositories/ClientRepository';
 const clientSchema = z.object({
   code: z.string(),
   name: z.string(),
-  ciNit: z
-    .string()
-    .min(7, { message: 'CI/NIT debe tener al menos 7 caracteres' }),
+  ciNit: z.string().min(7, { message: 'CI/NIT debe tener al menos 7 caracteres' }),
   documentType: z.enum(['CI', 'NIT']),
   email: z.string().email({ message: 'El formato del email es inválido' }),
 });
@@ -40,6 +38,24 @@ export async function registerClientService(clientData: any): Promise<any> {
         documentType: savedClient.documenttype,
         email: savedClient.email,
       },
+    };
+  } catch (error: any) {
+    if (error?.detail) {
+      throw new Error(error?.detail);
+    }
+    throw new Error('Error al registrar el cliente en la base de datos');
+  }
+}
+
+export async function getClientService(code: string): Promise<any> {
+  // 3. Guardar el cliente en la base de datos utilizando el repositorio
+  const clientRepository = new ClientRepository();
+  try {
+    const savedClient = await clientRepository.findByCode(code);
+
+    // 4. Devolver el cliente guardado en la respuesta
+    return {
+      data: savedClient,
     };
   } catch (error: any) {
     if (error?.detail) {
