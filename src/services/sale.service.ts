@@ -21,6 +21,7 @@ export class SaleService {
 
     async save(saleCreateDto: SaleCreateDto): Promise<SaleDto> {
         const client = await this.clientRepository.findByCode(saleCreateDto.clientCode);
+        console.log('test ht', client);
         if (client == null) {
             throw new Error(`Client witch code ${saleCreateDto.clientCode} not found`);
         }
@@ -32,7 +33,7 @@ export class SaleService {
         for (const p of saleCreateDto.productsItem) {
             const product = await this.productRepository.findByCode(p.code);
             if (product == null) {
-                throw new Error(`Product witch code ${p.code} not found`);
+                throw new Error(`Product with code ${p.code} not found`);
             }
             products.push({
                 amount: p.amount,
