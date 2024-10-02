@@ -55,7 +55,7 @@ export async function getClientService(code: string): Promise<any> {
 
     // 4. Devolver el cliente guardado en la respuesta
     return {
-      data: savedClient,
+      savedClient,
     };
   } catch (error: any) {
     if (error?.detail) {
