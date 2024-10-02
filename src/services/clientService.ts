@@ -54,9 +54,7 @@ export async function getClientService(code: string): Promise<any> {
     const savedClient = await clientRepository.findByCode(code);
 
     // 4. Devolver el cliente guardado en la respuesta
-    return {
-      savedClient,
-    };
+    return savedClient;
   } catch (error: any) {
     if (error?.detail) {
       throw new Error(error?.detail);
