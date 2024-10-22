@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "tsc -b && vite build",
     "start": "ts-node src/index.ts",
     "dev": "nodemon --watch src --exec ts-node src/index.ts",
     "test": "vitest run",
